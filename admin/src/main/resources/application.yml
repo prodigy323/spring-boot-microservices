@@ -1,0 +1,41 @@
+info:
+  component: Spring Boot Admin Server
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: admin
+  boot:
+    admin:
+#      context-path: "/admin"
+      ui:
+        public-url: http://localhost:8080/admin/
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+  client:
+    registryFetchIntervalSeconds: 5
+
+---
+
+spring:
+  profiles: local
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+---
+
+spring:
+  profiles: compose
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:8761/eureka/
