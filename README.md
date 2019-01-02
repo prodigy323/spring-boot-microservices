@@ -5,7 +5,7 @@ Complete Spring Boot Infrastructure
 ### mysql
 #### command line
 ```sh
-docker run -d --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<PASSWD> mysql
+docker run -d --name mysql -p 3306:3306 -v ${HOME}/dev/docker/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=<PASSWD> mysql
 ```
 #### docker-compose
 ```yaml
@@ -17,6 +17,8 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: <PASSWD>
+    volumes:
+      - ${HOME}/dev/docker/mysql:/var/lib/mysql
 ```
 ### rabbitmq
 #### command line
