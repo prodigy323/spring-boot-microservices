@@ -1,0 +1,27 @@
+# create, update, create-drop, validate, none
+spring:
+  datasource:
+    username: root
+    password: mysqlpw
+    #password: '{cipher}AQBMJGTaOOQ/lPcJeVX1HF74RlILbWENzKD/kMoIjhFT9pYz/EoAhw1Vv3uJ2Jgy61Xl9hEN4WTD5SXEfS1ExAzI+IvNB9x5PGCI0a0dO+xXs7Al8kreoiYOCZm/1wPrCYotY0z/Jlp8AIdlRcSX2+0hTP8s+EkqsQLQvrgN6Z62Rni+h1KE9oeE+K4qtjIafgsVylwqI09LOpOonpTcWk5T+WndnqeFjuZqbAAlQJ6nQNJJhXvT8C7Zv/bgF2fKBcSWOYbd5Ud1Y+Gp5dO9ZVJIa6n1qa+szbC1uRUdFBF3uXr43nZClAIAK/qEjxcV34wsppfj9e610KKJM5kNFFepkAfnysPg8dAIapZqQTzpvwQiqIZGTfRyS62wP+lq1hc='
+    # initialization-mode: always
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    # hibernate:
+    #   ddl-auto: update
+
+---
+
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/ares_hero_data
+
+---
+
+spring:
+  profiles: compose
+  datasource:
+    url: jdbc:mysql://mysql:3306/ares_hero_data

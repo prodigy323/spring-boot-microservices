@@ -1,58 +1,10 @@
-zuul:
-  retryable: true
-  host:
-    connect-timeout-millis: 3000
-    socket-timeout-millis: 60000
-
-hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
-ribbon:
-  ConnectTimeout: 3000
-  ReadTimeout: 60000
-
----
-
-spring:
-  profiles: local
-
-zuul:
-  routes:
-    admin:
-      path: /admin/**
-      url: http://localhost:8081/
-    eureka_base:
-      path: /eureka/**
-      url: http://localhost:8761/
-#    eureka_css:
-#      path: /wro.css
-#      url: http://localhost:8761/wro.css
-#    eureka_js:
-#      path: /wro.js
-#      url: http://localhost:8761/wro.js
-    hystrix:
-      path: /hystrix/**
-      serviceId: hystrix-dashboard
-      stripPrefix: false
-
----
-
-spring:
-  profiles: compose
-
-zuul:
-  routes:
-    admin:
-      path: /admin/**
-      url: http://admin:8081/
-    eureka_base:
-      path: /eureka/**
-      url: http://eureka:8761/
-    #    eureka_css:
-    #      path: /wro.css
-    #      url: http://localhost:8761/wro.css
-    #    eureka_js:
-    #      path: /wro.js
-    #      url: http://localhost:8761/wro.js
-    hystrix:
-      path: /hystrix/**
-      serviceId: hystrix-dashboard
-      stripPrefix: false
+#zuul:
+#  retryable: true
+#  host:
+#    connect-timeout-millis: 3000
+#    socket-timeout-millis: 60000
+#
+#hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+#ribbon:
+#  ConnectTimeout: 3000
+#  ReadTimeout: 60000

@@ -26,23 +26,27 @@ management:
       exposure:
         include: "*"
 
-#logging:
-#  file: /Users/joehong/dev/logs/${spring.application.name}.log
+logging:
+  file: /Users/joehong/dev/logs/${spring.application.name}.log
+
+eureka:
+  client:
+    enabled: false
 
 ---
 
 spring:
   profiles: local
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
   cloud:
     config:
       server:
         native:
           searchLocations: file://${HOME}/dev/github/spring-boot-microservices/config-repo/
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
 
 ---
 
@@ -53,8 +57,3 @@ spring:
       server:
         native:
           searchLocations: file:///data/
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eureka:8761/eureka/

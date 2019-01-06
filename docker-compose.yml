@@ -8,6 +8,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: mysqlpw
       #MYSQL_DATABASE: catalog
+    volumes:
+      - ${HOME}/dev/docker/mysql:/var/lib/mysql
 
   rabbitmq:
     container_name: rabbitmq

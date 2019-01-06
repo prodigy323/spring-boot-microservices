@@ -7,11 +7,11 @@ server:
 spring:
   application:
     name: admin
-  boot:
-    admin:
+#  boot:
+#    admin:
 #      context-path: "/admin"
-      ui:
-        public-url: http://localhost:8080/admin/
+#      ui:
+#        public-url: http://localhost:8080/admin/
 
 eureka:
   instance:
